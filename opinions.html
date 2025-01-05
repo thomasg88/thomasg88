@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opinions</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="opinions.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Opinions</h1>
+    </header>
+    <main class="grid-container">
+        <!-- 8 Sections -->
+        <section class="collaborator-section">
+            <img src="thomasgkoud.jpg" alt="thomas" class="collaborator-photo" onclick="requestEmail(0)">
+            <h2>thomas</h2> 
+ <h3> Φοιτητής του τμηματος επικοινωνίας και ψηφιακών μέσων με κατεύθηνση το ψηφιακό μάρκετινγκ αλλά και την συγγραφή κειμένων και άρθρων σχετικών με εκδηλώσεις,καλλιτεχνικώ και καμμία φορά απόψεων για καθημερινά θέματα </h3> 
+             <button class="show-more" onclick="showArticles('Thomas')">Δείξε μου περισσότερα</button>
+        </section>
+        <section class="collaborator-section">
+            <img src="collaborator2.jpg" alt="coming soon" class="collaborator-photo">
+            <h2>coming soon</h2>
+            <button onclick="requestEmail(1)">coming soon</button>
+        </section>
+        <section class="collaborator-section">
+            <img src="collaborator3.jpg" alt="coming soon" class="collaborator-photo">
+            <h2>coming soon</h2>
+            <button onclick="requestEmail(2)">coming soon</button>
+        </section>
+        <section class="collaborator-section">
+            <img src="collaborator4.jpg" alt="coming soon" class="collaborator-photo">
+            <h2>coming soon</h2>
+            <button onclick="requestEmail(3)">coming soon</button>
+        </section>
+   </main>
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <ul id="article-list"></ul>
+        </div>
+    </div>
+</body>
+</body>
+</html>

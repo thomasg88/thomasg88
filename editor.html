@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Article</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="editor.js"></script>
+</head>
+<body>
+    <header>
+        <h1 id="welcomeMessage">Welcome</h1>
+    </header>
+    <main>
+        <textarea id="articleContent" rows="10" cols="50" placeholder="Write your article here..."></textarea>
+        
+        <!-- Επιλογή Εικόνας -->
+        <div>
+            <label for="imageUpload">Upload an Image:</label>
+            <input type="file" id="imageUpload" accept="image/*">
+            <button id="addImage">Add Image</button>
+        </div>
+
+        <!-- Επιλογή Βίντεο -->
+        <div>
+            <label for="videoLink">Add Video Link (YouTube, etc.):</label>
+            <input type="text" id="videoLink" placeholder="Enter video URL">
+            <button id="addVideo">Add Video</button>
+        </div>
+
+        <!-- Περιοχή Προεπισκόπησης Άρθρου -->
+        <div id="previewSection">
+            <h2>Preview</h2>
+            <div id="articlePreview"></div>
+        </div>
+
+        <!-- Υποβολή Άρθρου -->
+        <button id="submitArticle">Submit</button>
+    </main>
+</body>
+</html>
+

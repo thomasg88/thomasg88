@@ -1,0 +1,83 @@
+/* Γενικό στυλ για μαύρο φόντο και ανοιχτόχρωμο κείμενο */
+body {
+    background-color: #000;
+    color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Στυλ για την ενότητα της φόρμας επικοινωνίας */
+.contact-form {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.contact-form h2 {
+    color: #f5f5f5;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #f5f5f5;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #444;
+    color: #f5f5f5;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #555;
+}
+
+/* Στυλ για τα social media εικονίδια */
+.social-links {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.social-links h2 {
+    color: #f5f5f5;
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-links img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0.7); /* Σκούρο εφέ */
+    transition: filter 0.3s ease;
+}
+
+.social-links img:hover {
+    filter: brightness(1); /* Διακριτή φωτεινότητα στο hover */

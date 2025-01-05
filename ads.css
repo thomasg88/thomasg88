@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+.main-header {
+    text-align: center;
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ads-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.ad-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.ad-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.ad-section p {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 800px;
+}
+
+/* Στυλ για κάθε ενότητα */
+.section-1 {
+    background: #dfe6e9;
+}
+
+.section-2 {
+    background: #ffeaa7;
+}
+
+.section-3 {
+    background: #fab1a0;
+}
+
+.section-4 {
+    background: #74b9ff;
+    color: #fff;
+}
+
+.section-5 {
+    background: #a29bfe;
+    color: #fff;
+}
+
+.section-6 {
+    background: #55efc4;
+}
