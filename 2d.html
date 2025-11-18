@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Σχέδια</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="translate.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>2D Σχέδια</h1>
+    <nav>
+        <a href="index.html" class="back-button">🏠 Επιστροφή στην Αρχική</a>
+    </nav>
+</header>
+
+<main>
+    <section class="section">
+        <div class="container">
+            <h2>🖼️ Τα 2D Σχέδια μου</h2>
+            <p>Παρακάτω μπορείτε να δείτε δείγματα από τα 2D σχέδια που έχω δημιουργήσει.</p>
+
+            <div id="designs-container" class="grid">
+                <p>📡 Φόρτωση δεδομένων...</p>
+
+
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Θωμάς Γκουντόπουλος. Όλα τα δικαιώματα κατοχυρωμένα.</p>
+</footer>
+
+<script>
+    const API_KEY = "AIzaSyD6TQIsLSgSQ6-YNCyEkV56Bl5_G-jYMzI"; // Το API Key σου
+    const FOLDER_ID = "1JiZODZrSfJ4hBzVBFkW4l4mkwfrTfGDW"; // Το ID του φακέλου με τα 2D σχέδια
+
+    async function fetch2DDesigns() {
+        const url = `https://www.googleapis.com/drive/v3/files?q='${FOLDER_ID}'+in+parents&key=${API_KEY}&fields=files(id, name, mimeType, webViewLink)`;
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            displayDesigns(data.files);
+        } catch (error) {
+            console.error("Σφάλμα φόρτωσης αρχείων:", error);
+            document.getElementById("designs-container").innerHTML = "<p>❌ Δεν βρέθηκαν αρχεία.</p>";
+        }
+    }
+
+    function displayDesigns(files) {
+        const container = document.getElementById("designs-container");
+        container.innerHTML = "";
+
+        files.forEach(file => {
+            const fileElement = document.createElement("div");
+            fileElement.classList.add("card");
+
+            let previewHTML = "";
+
+            if (file.mimeType.startsWith("image/")) {
+                previewHTML = `<img src="https://drive.google.com/uc?id=${file.id}" alt="${file.name}" style="width:100%; height:auto;">`;
+            } else {
+                previewHTML = `<iframe src="https://drive.google.com/file/d/${file.id}/preview" width="100%" height="300" frameborder="0" allowfullscreen></iframe>`;
+            }
+
+            fileElement.innerHTML = `
+                <h4>${file.name}</h4>
+                ${previewHTML}
+                <div style="margin-top:10px;">
+                    <a href="https://drive.google.com/uc?id=${file.id}&export=download" class="download-button" target="_blank">📥 Κατέβασμα</a>
+                    <a href="${file.webViewLink}" class="view-button" target="_blank" style="margin-left:10px;">📂 Προβολή στο Drive</a>
+                </div>
+            `;
+
+            container.appendChild(fileElement);
+        });
+    }
+
+    fetch2DDesigns();
+</script>
+
+</body>
+</html>

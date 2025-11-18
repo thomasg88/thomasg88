@@ -1,0 +1,186 @@
+/* Γενικά */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #6e9273;
+    --background-color: linear-gradient(135deg, #93bb65, #86a08c);
+    --text-color: #ffffff;
+    --font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    margin: 0;
+    background: var(--background-color);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1, h2, h3 {
+    color: var(--secondary-color);
+}
+
+/* Header */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Sections */
+.section {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+}
+
+/* Menu */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav ul.menu > li {
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+nav ul .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 200px;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul .dropdown-menu li a {
+    color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+nav ul li:hover > .dropdown-menu {
+    display: block;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    margin-top: 2rem;
+}
+
+/* Βασικό Layout */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin: 0;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Header */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Grid για τα άρθρα */
+.grid {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    max-width: 300px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.card a:hover {
+    background: #388E3C;
+}
+
+/* Στυλ για κενές κάρτες (μελλοντικά άρθρα) */
+.card.empty {
+    background: #f0f0f0;
+    color: #666;
+    font-style: italic;
+}
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ερευνητικό Έργο</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="translate.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>Ερευνητικό Έργο</h1>
+    <nav>
+        <a href="index.html" class="back-button">🏠 Επιστροφή στην Αρχική</a>
+    </nav>
+</header>
+
+<main>
+    <section class="section">
+        <div class="container">
+            <h2>🔬 Επιστημονικές Έρευνες</h2>
+            <p>Παρακάτω μπορείτε να δείτε και να κατεβάσετε τα ερευνητικά έργα μου.</p>
+
+            <!-- Παρουσιάσεις -->
+            <h3>🎥 Παρουσιάσεις</h3>
+            <div id="presentations" class="grid"></div>
+
+            <!-- Έγγραφα -->
+            <h3>📄 Έγγραφα</h3>
+            <div id="documents" class="grid"></div>
+
+            <!-- Άλλα Αρχεία -->
+            <h3>📚 Άλλα Αρχεία</h3>
+            <div id="others" class="grid"></div>
+
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Θωμάς Γκουντόπουλος. Όλα τα δικαιώματα κατοχυρωμένα.</p>
+</footer>
+
+<script>
+    const API_KEY = "AIzaSyD6TQIsLSgSQ6-YNCyEkV56Bl5_G-jYMzI"; // Το δικό σου API KEY
+    const FOLDER_ID = "1sV5WiQp-o1TL6JdCz-n4xlrzFpEPkpAW"; // Το ID του φακέλου "Έρευνες"
+
+    async function fetchResearchFiles() {
+        const url = `https://www.googleapis.com/drive/v3/files?q='${FOLDER_ID}'+in+parents&key=${API_KEY}&fields=files(id, name, mimeType, webViewLink)`;
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            organizeFiles(data.files);
+        } catch (error) {
+            console.error("Σφάλμα φόρτωσης αρχείων:", error);
+            document.getElementById("presentations").innerHTML = "<p>❌ Δεν βρέθηκαν αρχεία.</p>";
+            document.getElementById("documents").innerHTML = "<p>❌ Δεν βρέθηκαν αρχεία.</p>";
+            document.getElementById("others").innerHTML = "<p>❌ Δεν βρέθηκαν αρχεία.</p>";
+        }
+    }
+
+    function organizeFiles(files) {
+        const presentationsContainer = document.getElementById("presentations");
+        const documentsContainer = document.getElementById("documents");
+        const othersContainer = document.getElementById("others");
+
+        presentationsContainer.innerHTML = "";
+        documentsContainer.innerHTML = "";
+        othersContainer.innerHTML = "";
+
+        files.forEach(file => {
+            const fileElement = document.createElement("div");
+            fileElement.classList.add("card");
+
+            fileElement.innerHTML = `
+                <h4>${file.name}</h4>
+                <iframe src="https://drive.google.com/file/d/${file.id}/preview" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
+                <div style="margin-top:10px;">
+                    <a href="https://drive.google.com/uc?id=${file.id}&export=download" class="download-button" target="_blank">📥 Κατέβασμα</a>
+                    <a href="${file.webViewLink}" class="view-button" target="_blank" style="margin-left:10px;">📂 Προβολή στο Drive</a>
+                </div>
+            `;
+
+            if (file.mimeType.includes("presentation")) {
+                presentationsContainer.appendChild(fileElement);
+            } else if (file.mimeType.includes("wordprocessingml") || file.mimeType.includes("application/vnd.oasis.opendocument.text")) {
+                documentsContainer.appendChild(fileElement);
+            } else {
+                othersContainer.appendChild(fileElement);
+            }
+        });
+    }
+
+    fetchResearchFiles();
+</script>
+</body>
+</html>
+
+ 
